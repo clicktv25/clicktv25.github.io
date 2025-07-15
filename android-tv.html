@@ -275,6 +275,121 @@
             box-shadow: 0 0 15px var(--gradient-start);
         }
 
+        .developer-button {
+            background: transparent;
+            border: 2px solid var(--gradient-start);
+            color: var(--gradient-start);
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block; /* Asegura que el botón se comporte como un bloque para el ancho */
+            box-sizing: border-box; /* Incluye padding y border en el ancho */
+        }
+
+        .developer-button .icon {
+            margin-right: 8px;
+        }
+
+        .developer-button:hover {
+            background: var(--gradient-start);
+            color: var(--card-background);
+            box-shadow: 0 0 15px var(--gradient-start);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .intro-text {
+                font-size: 1em;
+            }
+            .guide-title h3 {
+                font-size: 1.1em;
+            }
+            .guide-title p {
+                font-size: 0.8em;
+            }
+            .guide-icon {
+                font-size: 1.5em;
+                margin-right: 15px;
+            }
+            .guide-content-inner li {
+                font-size: 0.95em;
+            }
+            .guide-content-inner .credentials {
+                font-size: 1em;
+            }
+            .back-button-top {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+            .back-button-bottom {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            .downloader-code span {
+                font-size: 1.8em;
+                letter-spacing: 5px;
+            }
+            .developer-button {
+                width: 100%; /* Ocupa todo el ancho disponible */
+                font-size: 0.9em; /* Ajustar tamaño de fuente para pantallas pequeñas */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .intro-text {
+                font-size: 0.9em;
+            }
+            .guide-title h3 {
+                font-size: 1em;
+            }
+            .guide-title p {
+                font-size: 0.75em;
+            }
+            .guide-icon {
+                font-size: 1.3em;
+                margin-right: 10px;
+            }
+            .guide-content-inner li {
+                font-size: 0.9em;
+            }
+            .guide-content-inner .credentials {
+                font-size: 0.9em;
+            }
+            .back-button-top {
+                top: 10px;
+                left: 10px;
+                padding: 6px 10px;
+                font-size: 0.8em;
+            }
+            .back-button-bottom {
+                padding: 8px 15px;
+                font-size: 0.8em;
+            }
+            .downloader-code span {
+                font-size: 1.5em;
+                letter-spacing: 3px;
+            }
+            .developer-button {
+                font-size: 0.8em; /* Ajustar aún más para pantallas muy pequeñas */
+                padding: 8px 10px; /* Reducir padding horizontal */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -336,6 +451,9 @@
                         </ol>
                         <div class="note">
                             <strong>Importante para Fire TV Stick:</strong> Si te da un error de instalación, ve a <strong>Configuración ⚙ → Mi Fire TV → Opciones para desarrolladores</strong> → y activa la opción "<strong>Apps de origen desconocido</strong>" o "<strong>Instalar apps desconocidas"</strong> para Downloader.
+                        </div>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <a href="modo-desarrollador.html" class="developer-button"><i class="fas fa-user-cog icon"></i> Cómo activar el modo desarrollador</a>
                         </div>
                     </div>
                 </div>
