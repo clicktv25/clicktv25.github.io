@@ -229,6 +229,27 @@
             box-shadow: 0 0 15px var(--gradient-start);
         }
 
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .download-button .fas {
+            margin-right: 8px;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -260,6 +281,10 @@
                 font-size: 0.9em;
             }
             .back-button-bottom {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            .download-button {
                 padding: 10px 20px;
                 font-size: 0.9em;
             }
@@ -298,6 +323,10 @@
                 font-size: 0.8em;
             }
             .back-button-bottom {
+                padding: 8px 15px;
+                font-size: 0.8em;
+            }
+            .download-button {
                 padding: 8px 15px;
                 font-size: 0.8em;
             }
@@ -345,11 +374,14 @@
                 <div class="guide-content">
                     <div class="guide-content-inner">
                         <ol>
-                            <li>Abre Google Chrome en tu celular o tablet.</li>
-                            <li>Escribe o pega este link en la barra de direcciones:
-                                <p style="font-size: 1.1em; font-weight: bold; color: var(--gradient-start); word-break: break-all;">https://iptvbrandpanel.com/apps/ClickTV.apk</p>
+                            <li>Haz click en el siguiente botón para descargar la aplicación:
+                                <div style="text-align: center; margin-top: 15px;">
+                                    <a href="https://iptvbrandpanel.com/apps/ClickTV.apk" class="download-button" target="_blank"><i class="fas fa-download"></i> Descargar ClickTV APK</a>
+                                </div>
                             </li>
-                            <li>Descarga el archivo e instálalo. Es posible que debas dar permiso para instalar apps desde el navegador.</li>
+                            <li>Una vez descargado el archivo, ábrelo para iniciar la instalación.</li>
+                            <li>Si tu dispositivo te pide permiso para "Instalar aplicaciones desconocidas" o "Fuentes desconocidas", deberás activarlo. Esto es normal para aplicaciones que no provienen de la Play Store. Busca esta opción en <strong>Ajustes > Aplicaciones y notificaciones > Acceso especial de aplicaciones > Instalar aplicaciones desconocidas</strong> (la ruta puede variar ligeramente según tu versión de Android y fabricante). Concede el permiso al navegador o a la aplicación desde donde descargaste el APK.</li>
+                            <li>Sigue las instrucciones en pantalla para completar la instalación.</li>
                             <li>Una vez instalada, abre la app ClickTV e inicia sesión con tus datos.</li>
                         </ol>
                     </div>
