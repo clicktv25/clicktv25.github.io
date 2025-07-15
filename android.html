@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrucciones para Android - ClickTV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--background-color);
+            background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.05) 75%, rgba(0, 0, 0, 0.05)), linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.05) 75%, rgba(0, 0, 0, 0.05));
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px var(--shadow-color), 0 0 30px 5px #00dbd6; /* Efecto de luz */
+            text-align: center;
+            max-width: 800px;
+            width: 90%;
+        }
+        h1 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        .instructions {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .instructions ol {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            margin-top: 30px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Instrucciones de Instalación para Android</h1>
+        <p>Sigue estos pasos para instalar ClickTV en tu dispositivo Android:</p>
+        <div class="instructions">
+            <ol>
+                <li>Descarga el archivo APK de ClickTV desde el siguiente enlace: <a href="#">Descargar ClickTV para Android (APK)</a></li>
+                <li>Una vez descargado, abre el archivo APK. Si te pide permisos para instalar aplicaciones de fuentes desconocidas, otórgalos en la configuración de tu dispositivo.</li>
+                <li>Sigue las instrucciones en pantalla para completar la instalación.</li>
+                <li>Una vez instalado, abre la aplicación ClickTV y disfruta.</li>
+            </ol>
+        </div>
+        <div class="video-container">
+            <!-- Reemplaza este iframe con el enlace de tu video de YouTube o similar -->
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <a href="index.html" class="back-button">Volver a la página de descarga</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva para Móvil - ClickTV</title>
+    <link rel="icon" href="logoclick.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --gradient-start: #18b3c8;
+            --gradient-end: #00dbd6;
+            --text-color: #E0E0E0;
+            --text-color-darker: #a0a0a0;
+            --background-color: #121212;
+            --card-background: #1E1E1E;
+            --interactive-background: #2a2a2a;
+            --shadow-color: rgba(0, 0, 0, 0.6);
+            --border-color: #333333;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end), #23d5ab, #18b3c8);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: var(--text-color);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .back-button-top {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        .back-button-top:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            background-color: var(--card-background);
+            padding: 30px 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px var(--shadow-color), 0 0 30px 5px #00dbd6;
+            text-align: center;
+            max-width: 900px;
+            width: 90%;
+            margin: 80px auto 40px auto;
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            font-size: 2.6em;
+            font-weight: 700;
+        }
+        h1 .icon {
+            margin-right: 15px;
+        }
+        .intro-text {
+            font-size: 1.1em;
+            color: var(--text-color-darker);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .interactive-guide {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .guide-step .guide-trigger {
+            width: 100%;
+            background: var(--interactive-background);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-align: left;
+            color: var(--text-color);
+        }
+        .guide-step .guide-trigger:hover {
+            background-color: #333;
+            border-color: var(--gradient-start);
+        }
+
+        .guide-icon {
+            font-size: 1.8em;
+            color: var(--gradient-end);
+            margin-right: 20px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .guide-title h3 {
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        .guide-title p {
+            margin: 0;
+            font-size: 0.9em;
+            color: var(--text-color-darker);
+        }
+
+        .guide-arrow {
+            margin-left: auto;
+            font-size: 1.5em;
+            transition: transform 0.4s ease;
+        }
+
+        .guide-step.active .guide-arrow {
+            transform: rotate(180deg);
+        }
+        .guide-step.active .guide-trigger {
+            background-color: #252525;
+            border-color: var(--gradient-end);
+        }
+
+        .guide-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out, opacity 0.5s ease-out;
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 0 0 15px 15px;
+            opacity: 0;
+        }
+        
+        .guide-content-inner {
+            padding: 25px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .guide-content-inner ol {
+            list-style-position: outside;
+            padding-left: 25px;
+        }
+        .guide-content-inner li {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .guide-content-inner li strong {
+            color: var(--gradient-end);
+            font-weight: 600;
+        }
+        .guide-content-inner .credentials {
+             background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.1em;
+        }
+        .guide-content-inner .credentials strong {
+            color: var(--gradient-end);
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .troubleshooting ul {
+            padding-left: 20px;
+        }
+        .troubleshooting h3 {
+            color: #FF6347;
+        }
+
+        .back-button-bottom {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 25px;
+            background: transparent;
+            border: 1px solid var(--gradient-start);
+            color: var(--gradient-start);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .back-button-bottom:hover {
+            background-color: var(--gradient-start);
+            color: var(--card-background);
+            box-shadow: 0 0 15px var(--gradient-start);
+        }
+
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button-top"><i class="fas fa-arrow-left"></i> Volver</a>
+    <div class="container">
+        <h1><i class="fas fa-mobile-alt icon"></i> Guía de Instalación para Móvil</h1>
+        <p class="intro-text">Sigue estos pasos para instalar ClickTV en tu celular o tablet Android. Pulsa en cada sección para ver los detalles.</p>
+
+        <div class="interactive-guide">
+
+            <!-- Step 1: Access -->
+            <div class="guide-step">
+                <button class="guide-trigger">
+                    <div class="guide-icon"><i class="fas fa-key"></i></div>
+                    <div class="guide-title">
+                        <h3>Paso 1: Tus Datos de Acceso</h3>
+                        <p>Información sobre tu usuario y contraseña.</p>
+                    </div>
+                    <div class="guide-arrow"><i class="fas fa-chevron-down"></i></div>
+                </button>
+                <div class="guide-content">
+                    <div class="guide-content-inner">
+                        <div class="credentials">
+                            <p>Tus datos de acceso (usuario y contraseña) te serán entregados por medio de <strong>WhatsApp de nuestra empresa</strong>. Los necesitarás para ingresar a la aplicación en el paso final.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Installation -->
+            <div class="guide-step">
+                <button class="guide-trigger">
+                    <div class="guide-icon"><i class="fas fa-download"></i></div>
+                    <div class="guide-title">
+                        <h3>Paso 2: Instalación en tu Móvil</h3>
+                        <p>Descarga e instala la app directamente desde el navegador.</p>
+                    </div>
+                    <div class="guide-arrow"><i class="fas fa-chevron-down"></i></div>
+                </button>
+                <div class="guide-content">
+                    <div class="guide-content-inner">
+                        <ol>
+                            <li>Abre Google Chrome en tu celular o tablet.</li>
+                            <li>Escribe o pega este link en la barra de direcciones:
+                                <p style="font-size: 1.1em; font-weight: bold; color: var(--gradient-start); word-break: break-all;">https://iptvbrandpanel.com/apps/ClickTV.apk</p>
+                            </li>
+                            <li>Descarga el archivo e instálalo. Es posible que debas dar permiso para instalar apps desde el navegador.</li>
+                            <li>Una vez instalada, abre la app ClickTV e inicia sesión con tus datos.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Video -->
+            <div class="guide-step">
+                <button class="guide-trigger">
+                    <div class="guide-icon"><i class="fas fa-video"></i></div>
+                    <div class="guide-title">
+                        <h3>Video Tutorial</h3>
+                        <p>¿Prefieres verlo? Mira cómo hacerlo en video.</p>
+                    </div>
+                    <div class="guide-arrow"><i class="fas fa-chevron-down"></i></div>
+                </button>
+                <div class="guide-content">
+                    <div class="guide-content-inner">
+                         <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Troubleshooting -->
+            <div class="guide-step">
+                <button class="guide-trigger">
+                    <div class="guide-icon"><i class="fas fa-wrench"></i></div>
+                    <div class="guide-title">
+                        <h3>¿Algún Problema?</h3>
+                        <p>Soluciones a los problemas más comunes.</p>
+                    </div>
+                    <div class="guide-arrow"><i class="fas fa-chevron-down"></i></div>
+                </button>
+                <div class="guide-content">
+                    <div class="guide-content-inner troubleshooting">
+                        <h3>¡Prueba esto primero!</h3>
+                        <ul>
+                            <li><strong>Revisa los datos:</strong> Asegúrate de que el usuario y la contraseña estén escritos exactamente como te los pasamos.</li>
+                            <li><strong>Reinicia todo:</strong> Apaga y enciende tu celular/tablet y también tu módem de internet. ¡Esto soluciona el 90% de los problemas!</li>
+                        </ul>
+                        <p>Si después de esto sigues con dudas, ¡escríbeme! Estoy para ayudarte.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center">
+            <a href="index.html" class="back-button-bottom"><i class="fas fa-arrow-left"></i> Volver a Descargas</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const guideSteps = document.querySelectorAll('.guide-step');
+
+            guideSteps.forEach(step => {
+                const trigger = step.querySelector('.guide-trigger');
+                const content = step.querySelector('.guide-content');
+
+                trigger.addEventListener('click', () => {
+                    const isActive = step.classList.contains('active');
+
+                    guideSteps.forEach(s => {
+                        s.classList.remove('active');
+                        s.querySelector('.guide-content').style.maxHeight = '0px';
+                        s.querySelector('.guide-content').style.opacity = '0';
+                    });
+
+                    if (!isActive) {
+                        step.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.opacity = '1';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activar Modo Desarrollador - ClickTV</title>
+    <link rel="icon" href="logoclick.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --gradient-start: #18b3c8;
+            --gradient-end: #00dbd6;
+            --text-color: #E0E0E0;
+            --background-color: #121212;
+            --card-background: #1E1E1E;
+            --shadow-color: rgba(0, 0, 0, 0.6);
+            --border-color: #333333;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end), #23d5ab, #18b3c8);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            background-color: var(--card-background);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px var(--shadow-color), 0 0 30px 5px #00dbd6;
+            text-align: left;
+            max-width: 800px;
+            width: 90%;
+            margin: 40px auto;
+            border: 1px solid var(--border-color);
+            animation: fadeInScale 1s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        h1 {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+        }
+        h1 .icon {
+            margin-right: 15px;
+        }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border-left: 5px solid var(--gradient-start);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .step-icon {
+            font-size: 2.5em;
+            color: var(--gradient-end);
+            margin-right: 25px;
+            width: 50px;
+            text-align: center;
+        }
+        .step-content h3 {
+            margin: 0 0 5px 0;
+            color: var(--gradient-start);
+            font-size: 1.4em;
+        }
+        .step-content p {
+            margin: 0;
+            font-size: 1em;
+            color: var(--text-color);
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .back-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-user-cog icon"></i>Cómo Activar el Modo Desarrollador</h1>
+
+        <div class="step">
+            <div class="step-icon"><i class="fas fa-cog"></i></div>
+            <div class="step-content">
+                <h3>Paso 1: Ir a Ajustes</h3>
+                <p>Abre el menú de <strong>Ajustes</strong> o <strong>Configuración</strong> en tu dispositivo Android.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-icon"><i class="fas fa-info-circle"></i></div>
+            <div class="step-content">
+                <h3>Paso 2: Acerca del Dispositivo</h3>
+                <p>Desplázate hasta el final y busca la opción <strong>"Acerca del teléfono"</strong>, <strong>"Información del tablet"</strong> o similar.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-icon"><i class="fas fa-hashtag"></i></div>
+            <div class="step-content">
+                <h3>Paso 3: Número de Compilación</h3>
+                <p>Dentro de "Acerca del dispositivo", busca la opción <strong>"Número de compilación"</strong>.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-icon"><i class="fas fa-hand-point-up"></i></div>
+            <div class="step-content">
+                <h3>Paso 4: Tocar 7 Veces</h3>
+                <p>Pulsa repetidamente (7 veces) sobre <strong>"Número de compilación"</strong>. Verás un mensaje que te indica cuántos toques te faltan.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+            <div class="step-content">
+                <h3>Paso 5: ¡Listo!</h3>
+                <p>Una vez hecho, aparecerá el mensaje <strong>"¡Ya eres un desarrollador!"</strong>. Es posible que te pida tu PIN o contraseña.</p>
+            </div>
+        </div>
+        
+        <div class="step">
+            <div class="step-icon"><i class="fas fa-code"></i></div>
+            <div class="step-content">
+                <h3>Paso 6: Encontrar las Opciones</h3>
+                <p>Vuelve al menú principal de Ajustes y ahora verás un nuevo menú llamado <strong>"Opciones de desarrollador"</strong>.</p>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Volver a Descargas</a>
+        </div>
+    </div>
+</body>
+</html>
